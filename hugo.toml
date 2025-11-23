@@ -147,3 +147,8 @@ theme = 'explore'
       url = "/deals/tracker/"
       parent = "deals"
       weight = 43
+      # ... [其他配置，例如 [menu] 配置块]
+
+[params]
+  # 添加或修改以下内容以自定义页脚版权信息
+  copyright = "© 2024 NucNas.top | 由 Hugo, Explore，Github 和 Cloudflare Pages 强力驱动。"
