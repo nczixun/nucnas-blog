@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'MINI PC 与 NAS 解决方案，你的家庭数据中心专家。'
-theme = 'explore'
+theme = "explore"
 # ... [您的 title, theme, baseURL 等配置]
 
 [menu]
