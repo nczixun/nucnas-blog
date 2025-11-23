@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小白从零开始搭建 TrueNAS 教程 &middot; My New Hugo Site</title>
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/nas-setup-guide/">
+
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+
+
+<meta property="og:title" content="小白从零开始搭建 TrueNAS 教程">
+<meta property="og:description" content="小白从零开始搭建 TrueNAS 教程
+一、TrueNAS 简介与版本选择
+TrueNAS 是一款功能强大的开源网络附加存储（NAS）操作系统，它基于 ZFS 文件系统，提供了数据完整性校验、快照、克隆、压缩等高级功能，非常适合家庭用户、中小型企业搭建数据存储中心。
+版本选择建议：
+
+TrueNAS CORE：基于 FreeBSD，更加成熟稳定，适合追求稳定性的用户。
+TrueNAS SCALE：基于 Debian Linux，支持 Docker 容器和 Kubernetes，适合需要更多应用生态和横向扩展的用户。
+
+
+⚠️ 注意：本教程以 TrueNAS CORE 为例，但 SCALE 版本安装过程类似。
+
+二、安装前准备工作
+1. 硬件要求
+
+内存：至少 8GB，推荐 16GB 或以上。
+存储：
+
+系统盘：一个 ≥16GB 的 U 盘或 SSD（用于安装 TrueNAS 系统）。
+数据盘：至少一块硬盘用于存储数据，容量根据需求选择。建议使用多块相同容量的硬盘以便配置 RAID。
+
+
+网络：有线网卡（暂不支持无线网卡）。
+其他：显示器、键盘。
+
+2. 软件准备
+
+TrueNAS 镜像：从 官方网站 下载最新版本的 ISO 镜像文件。
+启动盘制作工具：推荐使用 Rufus 或 Etcher。
+
+3. 制作 TrueNAS 启动盘
+
+将 U 盘插入电脑。
+打开 Rufus，选择您的 U 盘设备。
+在 &ldquo;镜像选择&rdquo; 处，点击 &ldquo;选择&rdquo; 并找到您下载的 TrueNAS ISO 文件。
+点击 &ldquo;开始&rdquo;，使用 DD 模式进行写入。
+等待进度条显示 &ldquo;准备就绪&rdquo;，即可安全移除 U 盘。
+
+三、安装 TrueNAS 系统
+
+
+引导启动：">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/posts/nas-setup-guide/">
+
+
+
+<meta property="article:section" content="posts">
+
+
+<meta property="article:published_time" content="2025-11-23 09:00:29 &#43;0800 CST">
+
+
+<meta property="article:modified_time" content="2025-11-23 09:00:29 &#43;0800 CST">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="小白从零开始搭建 TrueNAS 教程">
+<meta name="twitter:description" content="小白从零开始搭建 TrueNAS 教程
+一、TrueNAS 简介与版本选择
+TrueNAS 是一款功能强大的开源网络附加存储（NAS）操作系统，它基于 ZFS 文件系统，提供了数据完整性校验、快照、克隆、压缩等高级功能，非常适合家庭用户、中小型企业搭建数据存储中心。
+版本选择建议：
+
+TrueNAS CORE：基于 FreeBSD，更加成熟稳定，适合追求稳定性的用户。
+TrueNAS SCALE：基于 Debian Linux，支持 Docker 容器和 Kubernetes，适合需要更多应用生态和横向扩展的用户。
+
+
+⚠️ 注意：本教程以 TrueNAS CORE 为例，但 SCALE 版本安装过程类似。
+
+二、安装前准备工作
+1. 硬件要求
+
+内存：至少 8GB，推荐 16GB 或以上。
+存储：
+
+系统盘：一个 ≥16GB 的 U 盘或 SSD（用于安装 TrueNAS 系统）。
+数据盘：至少一块硬盘用于存储数据，容量根据需求选择。建议使用多块相同容量的硬盘以便配置 RAID。
+
+
+网络：有线网卡（暂不支持无线网卡）。
+其他：显示器、键盘。
+
+2. 软件准备
+
+TrueNAS 镜像：从 官方网站 下载最新版本的 ISO 镜像文件。
+启动盘制作工具：推荐使用 Rufus 或 Etcher。
+
+3. 制作 TrueNAS 启动盘
+
+将 U 盘插入电脑。
+打开 Rufus，选择您的 U 盘设备。
+在 &ldquo;镜像选择&rdquo; 处，点击 &ldquo;选择&rdquo; 并找到您下载的 TrueNAS ISO 文件。
+点击 &ldquo;开始&rdquo;，使用 DD 模式进行写入。
+等待进度条显示 &ldquo;准备就绪&rdquo;，即可安全移除 U 盘。
+
+三、安装 TrueNAS 系统
+
+
+引导启动：">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "小白从零开始搭建 TrueNAS 教程",
+  "name": "小白从零开始搭建 TrueNAS 教程",
+  "description": "\u003ch1 id=\u0022小白从零开始搭建-truenas-教程\u0022\u003e小白从零开始搭建 TrueNAS 教程\u003c\/h1\u003e\n\u003ch2 id=\u0022一truenas-简介与版本选择\u0022\u003e一、TrueNAS 简介与版本选择\u003c\/h2\u003e\n\u003cp\u003eTrueNAS 是一款功能强大的开源网络附加存储（NAS）操作系统，它基于 ZFS 文件系统，提供了数据完整性校验、快照、克隆、压缩等高级功能，非常适合家庭用户、中小型企业搭建数据存储中心。\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003e版本选择建议\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eTrueNAS CORE\u003c\/strong\u003e：基于 FreeBSD，更加成熟稳定，适合追求稳定性的用户。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eTrueNAS SCALE\u003c\/strong\u003e：基于 Debian Linux，支持 Docker 容器和 Kubernetes，适合需要更多应用生态和横向扩展的用户。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cblockquote\u003e\n\u003cp\u003e⚠️ \u003cstrong\u003e注意\u003c\/strong\u003e：本教程以 \u003cstrong\u003eTrueNAS CORE\u003c\/strong\u003e 为例，但 SCALE 版本安装过程类似。\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003ch2 id=\u0022二安装前准备工作\u0022\u003e二、安装前准备工作\u003c\/h2\u003e\n\u003ch3 id=\u00221-硬件要求\u0022\u003e1. 硬件要求\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e内存\u003c\/strong\u003e：至少 8GB，推荐 16GB 或以上。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e存储\u003c\/strong\u003e：\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e系统盘\u003c\/strong\u003e：一个 ≥16GB 的 U 盘或 SSD（用于安装 TrueNAS 系统）。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e数据盘\u003c\/strong\u003e：至少一块硬盘用于存储数据，容量根据需求选择。建议使用多块相同容量的硬盘以便配置 RAID。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e网络\u003c\/strong\u003e：有线网卡（暂不支持无线网卡）。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e其他\u003c\/strong\u003e：显示器、键盘。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u00222-软件准备\u0022\u003e2. 软件准备\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eTrueNAS 镜像\u003c\/strong\u003e：从 \u003ca href=\u0022https:\/\/www.truenas.com\/download-truenas-core\/\u0022\u003e官方网站\u003c\/a\u003e 下载最新版本的 ISO 镜像文件。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e启动盘制作工具\u003c\/strong\u003e：推荐使用 \u003cstrong\u003eRufus\u003c\/strong\u003e 或 Etcher。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u00223-制作-truenas-启动盘\u0022\u003e3. 制作 TrueNAS 启动盘\u003c\/h3\u003e\n\u003col\u003e\n\u003cli\u003e将 U 盘插入电脑。\u003c\/li\u003e\n\u003cli\u003e打开 Rufus，选择您的 U 盘设备。\u003c\/li\u003e\n\u003cli\u003e在 \u0026ldquo;镜像选择\u0026rdquo; 处，点击 \u0026ldquo;选择\u0026rdquo; 并找到您下载的 TrueNAS ISO 文件。\u003c\/li\u003e\n\u003cli\u003e点击 \u0026ldquo;开始\u0026rdquo;，使用 \u003cstrong\u003eDD 模式\u003c\/strong\u003e进行写入。\u003c\/li\u003e\n\u003cli\u003e等待进度条显示 \u0026ldquo;准备就绪\u0026rdquo;，即可安全移除 U 盘。\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch2 id=\u0022三安装-truenas-系统\u0022\u003e三、安装 TrueNAS 系统\u003c\/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e引导启动\u003c\/strong\u003e：\u003c\/p\u003e",
+  "url": "http:\/\/localhost:1313\/posts\/nas-setup-guide\/",
+  
+  "datePublished": "2025-11-23T09:00:29\u002b08:00",
+  "dateModified": "2025-11-23T09:00:29\u002b08:00",
+  "author": {
+    "@type": "Person",
+    "name": ""
+  },
+  
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http:\/\/localhost:1313\/posts\/nas-setup-guide\/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http:\/\/localhost:1313\/apple-touch-icon.png"
+    }
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.9f977af4f7690c30b9e466d934ec338d56157a5fab2ba3bd323be8bdca99a37e.css" integrity="sha256-n5d69PdpDDC55GbZNOwzjVYVel&#43;rK6O9MjvovcqZo34=">
+
+
+
+
+</head>
+<body>
+  <header class="site-header ">
+  <div class="container header-inner">
+    <div class="site-identity">
+      <a href="/" class="site-brand">
+        
+          My New Hugo Site
+        
+      </a>
+      
+    </div>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <nav id="site-nav" class="site-nav">
+      <div class="main-nav">
+        <ul>
+          
+          
+        </ul>
+      </div>
+      
+      <a href="/search" class="nav-search" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+      
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+  <main class="site-main">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="layout-grid ">
+    <article class="post-single main-content ">
+      <header class="post-header">
+        <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li><li class="breadcrumb-item"><a href="/posts/">Posts</a></li><li class="breadcrumb-item" aria-current="page">小白从零开始搭建 TrueNAS 教程</li>
+  </ol>
+</nav>
+        <h1 class="post-title">小白从零开始搭建 TrueNAS 教程</h1>
+        <div class="post-meta">
+          
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <time datetime="2025-11-23T09:00:29&#43;08:00">Nov 23, 2025</time>
+            </span>
+          
+          
+        </div>
+      </header>
+
+      
+        <aside class="toc">
+  <h2 class="toc-title">Table of Contents</h2>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一truenas-简介与版本选择">一、TrueNAS 简介与版本选择</a></li>
+    <li><a href="#二安装前准备工作">二、安装前准备工作</a>
+      <ul>
+        <li><a href="#1-硬件要求">1. 硬件要求</a></li>
+        <li><a href="#2-软件准备">2. 软件准备</a></li>
+        <li><a href="#3-制作-truenas-启动盘">3. 制作 TrueNAS 启动盘</a></li>
+      </ul>
+    </li>
+    <li><a href="#三安装-truenas-系统">三、安装 TrueNAS 系统</a></li>
+    <li><a href="#四基础系统配置">四、基础系统配置</a>
+      <ul>
+        <li><a href="#1-登录-web-管理界面">1. 登录 Web 管理界面</a></li>
+        <li><a href="#2-配置时区与语言">2. 配置时区与语言</a></li>
+        <li><a href="#3-配置网络与固定-ip">3. 配置网络与固定 IP</a></li>
+      </ul>
+    </li>
+    <li><a href="#五创建存储池-pool">五、创建存储池 (Pool)</a></li>
+    <li><a href="#六创建数据集-dataset">六、创建数据集 (Dataset)</a></li>
+    <li><a href="#七配置用户与权限">七、配置用户与权限</a></li>
+    <li><a href="#八设置-smb-共享-windows-文件共享">八、设置 SMB 共享 (Windows 文件共享)</a></li>
+    <li><a href="#九访问您的-truenas-共享">九、访问您的 TrueNAS 共享</a></li>
+    <li><a href="#十数据保护与维护建议">十、数据保护与维护建议</a></li>
+  </ul>
+</nav>
+</aside>
+      
+
+      <div class="post-content">
+        <h1 id="小白从零开始搭建-truenas-教程">小白从零开始搭建 TrueNAS 教程</h1>
+<h2 id="一truenas-简介与版本选择">一、TrueNAS 简介与版本选择</h2>
+<p>TrueNAS 是一款功能强大的开源网络附加存储（NAS）操作系统，它基于 ZFS 文件系统，提供了数据完整性校验、快照、克隆、压缩等高级功能，非常适合家庭用户、中小型企业搭建数据存储中心。</p>
+<p><strong>版本选择建议</strong>：</p>
+<ul>
+<li><strong>TrueNAS CORE</strong>：基于 FreeBSD，更加成熟稳定，适合追求稳定性的用户。</li>
+<li><strong>TrueNAS SCALE</strong>：基于 Debian Linux，支持 Docker 容器和 Kubernetes，适合需要更多应用生态和横向扩展的用户。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>注意</strong>：本教程以 <strong>TrueNAS CORE</strong> 为例，但 SCALE 版本安装过程类似。</p>
+</blockquote>
+<h2 id="二安装前准备工作">二、安装前准备工作</h2>
+<h3 id="1-硬件要求">1. 硬件要求</h3>
+<ul>
+<li><strong>内存</strong>：至少 8GB，推荐 16GB 或以上。</li>
+<li><strong>存储</strong>：
+<ul>
+<li><strong>系统盘</strong>：一个 ≥16GB 的 U 盘或 SSD（用于安装 TrueNAS 系统）。</li>
+<li><strong>数据盘</strong>：至少一块硬盘用于存储数据，容量根据需求选择。建议使用多块相同容量的硬盘以便配置 RAID。</li>
+</ul>
+</li>
+<li><strong>网络</strong>：有线网卡（暂不支持无线网卡）。</li>
+<li><strong>其他</strong>：显示器、键盘。</li>
+</ul>
+<h3 id="2-软件准备">2. 软件准备</h3>
+<ul>
+<li><strong>TrueNAS 镜像</strong>：从 <a href="https://www.truenas.com/download-truenas-core/">官方网站</a> 下载最新版本的 ISO 镜像文件。</li>
+<li><strong>启动盘制作工具</strong>：推荐使用 <strong>Rufus</strong> 或 Etcher。</li>
+</ul>
+<h3 id="3-制作-truenas-启动盘">3. 制作 TrueNAS 启动盘</h3>
+<ol>
+<li>将 U 盘插入电脑。</li>
+<li>打开 Rufus，选择您的 U 盘设备。</li>
+<li>在 &ldquo;镜像选择&rdquo; 处，点击 &ldquo;选择&rdquo; 并找到您下载的 TrueNAS ISO 文件。</li>
+<li>点击 &ldquo;开始&rdquo;，使用 <strong>DD 模式</strong>进行写入。</li>
+<li>等待进度条显示 &ldquo;准备就绪&rdquo;，即可安全移除 U 盘。</li>
+</ol>
+<h2 id="三安装-truenas-系统">三、安装 TrueNAS 系统</h2>
+<ol>
+<li>
+<p><strong>引导启动</strong>：</p>
+<ul>
+<li>将制作好的启动盘插入需要安装 TrueNAS 的服务器或主机。</li>
+<li>开机并按快捷键（如 F7、F11 或 F12，具体因主板而异）进入启动菜单。</li>
+<li>选择从您的 U 盘启动。</li>
+</ul>
+</li>
+<li>
+<p><strong>开始安装</strong>：</p>
+<ul>
+<li>在引导界面，选择 &ldquo;Install/Upgrade&rdquo; 选项。</li>
+<li>安装程序会列出可用的磁盘。<strong>选择您准备用作系统盘的磁盘</strong>（例如之前准备的U盘或SSD）。<strong>注意：</strong> 安装过程会格式化该磁盘。</li>
+</ul>
+</li>
+<li>
+<p><strong>设置管理员密码</strong>：</p>
+<ul>
+<li>系统会提示设置管理员 (<code>root</code>) 账户的密码。请务必设置一个强密码并妥善保管。部分安装界面也提供选项，允许在首次登录Web界面时再设置密码。</li>
+</ul>
+</li>
+<li>
+<p><strong>完成安装</strong>：</p>
+<ul>
+<li>确认安装设置后，系统将自动进行安装。</li>
+<li>安装完成后，系统会提示移除安装介质并重启。</li>
+<li>重启后，您将看到控制台界面，其中显示了访问 TrueNAS Web 管理界面的 IP 地址。</li>
+</ul>
+</li>
+</ol>
+<h2 id="四基础系统配置">四、基础系统配置</h2>
+<h3 id="1-登录-web-管理界面">1. 登录 Web 管理界面</h3>
+<p>在局域网内另一台电脑的浏览器中，输入控制台显示的 IP 地址，使用设置的管理员账户和密码登录。</p>
+<h3 id="2-配置时区与语言">2. 配置时区与语言</h3>
+<ul>
+<li>进入 &ldquo;System&rdquo; -&gt; &ldquo;General&rdquo;。</li>
+<li>在 &ldquo;Timezone&rdquo; 中选择 &ldquo;Asia/Shanghai&rdquo; (或您所在的时区)。</li>
+</ul>
+<h3 id="3-配置网络与固定-ip">3. 配置网络与固定 IP</h3>
+<ul>
+<li>进入 &ldquo;Network&rdquo; -&gt; &ldquo;Global Configuration&rdquo;。</li>
+<li>建议为 TrueNAS 服务器设置一个<strong>静态 IP 地址</strong>，并配置默认网关和 DNS 服务器。这能确保IP地址不会变动，方便后续访问。</li>
+</ul>
+<h2 id="五创建存储池-pool">五、创建存储池 (Pool)</h2>
+<p>存储池是 TrueNAS 管理存储空间的基础。</p>
+<ol>
+<li>进入 &ldquo;Storage&rdquo; -&gt; &ldquo;Pools&rdquo;。</li>
+<li>点击 &ldquo;ADD POOL&rdquo;。</li>
+<li><strong>为存储池命名</strong>，例如 &ldquo;my_pool&rdquo;。</li>
+<li><strong>选择数据盘</strong>：从左边的可用磁盘列表中，选择要添加到池中的硬盘，点击中间的箭头添加到右侧。</li>
+<li><strong>配置 RAID 类型</strong>（如果您添加了多块硬盘）：
+<ul>
+<li><strong>RAID-Z1</strong>：允许一块硬盘故障，至少需要3块硬盘。</li>
+<li><strong>RAID-Z2</strong>：允许两块硬盘故障，至少需要4块硬盘。</li>
+<li><strong>Mirror（镜像）</strong>：两两镜像，提供最好的冗余性，空间利用率为50%。</li>
+<li><strong>Stripe（条带）</strong>：无冗余，不推荐用于重要数据。</li>
+</ul>
+</li>
+<li>点击 &ldquo;Create&rdquo; 创建存储池。</li>
+</ol>
+<h2 id="六创建数据集-dataset">六、创建数据集 (Dataset)</h2>
+<p>数据集类似于文件夹，用于在存储池内划分不同用途的空间并设置不同的属性。</p>
+<ol>
+<li>在 &ldquo;Storage&rdquo; -&gt; &ldquo;Pools&rdquo; 中，找到您创建的存储池。</li>
+<li>点击池名称旁边的三个点 &ldquo;&hellip;&quot;，然后选择 &ldquo;Create Dataset&rdquo;。</li>
+<li>输入数据集的名称，例如 &ldquo;media&rdquo;。</li>
+<li>您可以根据需要设置压缩、配额等高级选项，初学者可先保持默认。</li>
+<li>点击 &ldquo;Save&rdquo;。</li>
+</ol>
+<h2 id="七配置用户与权限">七、配置用户与权限</h2>
+<p>为了安全地访问共享文件，建议创建独立的用户账户。</p>
+<ol>
+<li>进入 &ldquo;Credentials&rdquo; -&gt; &ldquo;Local Users&rdquo;。</li>
+<li>点击 &ldquo;Add&rdquo;。</li>
+<li>填写用户名、密码等信息。</li>
+<li>在 &ldquo;Primary Group&rdquo; 中，可以输入一个新的组名（如 &ldquo;smbusers&rdquo;）或使用现有组。</li>
+<li>为该用户设置主目录（可选），点击 &ldquo;Save&rdquo;。</li>
+</ol>
+<h2 id="八设置-smb-共享-windows-文件共享">八、设置 SMB 共享 (Windows 文件共享)</h2>
+<p>SMB 是 Windows 系统最常用的文件共享协议。</p>
+<ol>
+<li>
+<p><strong>创建共享</strong>：</p>
+<ul>
+<li>进入 &ldquo;Sharing&rdquo; -&gt; &ldquo;SMB&rdquo;。</li>
+<li>点击 &ldquo;ADD&rdquo;。</li>
+<li>在 &ldquo;Path&rdquo; 中，浏览并选择您之前创建的数据集（例如 <code>/mnt/my_pool/media</code>）。</li>
+<li>为共享起一个名称（如 &ldquo;MyMedia&rdquo;）。</li>
+<li>点击 &ldquo;Save&rdquo;。</li>
+</ul>
+</li>
+<li>
+<p><strong>设置访问权限 (ACL)</strong>：</p>
+<ul>
+<li>在 SMB 共享列表中找到新建的共享，点击其右侧的 &ldquo;Edit ACL&rdquo;（可能显示为三个点或笔状图标）。</li>
+<li>在这里，您可以添加之前创建的用户或组，并为其设置读写或只读权限。</li>
+<li>移除默认的 &ldquo;everyone@&rdquo; 条目可以增强安全性。</li>
+</ul>
+</li>
+<li>
+<p><strong>启动 SMB 服务</strong>：</p>
+<ul>
+<li>保存共享设置后，系统通常会提示您启动 SMB 服务。请确保服务已运行，并勾选 &ldquo;自动启动&rdquo;。</li>
+</ul>
+</li>
+</ol>
+<h2 id="九访问您的-truenas-共享">九、访问您的 TrueNAS 共享</h2>
+<p>在 Windows 电脑上：</p>
+<ol>
+<li>打开<strong>文件资源管理器</strong>。</li>
+<li>在地址栏输入 <code>\\</code> 后面跟上您的 TrueNAS 服务器的 IP 地址，例如：<code>\\192.168.1.100</code>。</li>
+<li>按回车，系统会提示您输入用户名和密码，使用之前在 TrueNAS 上创建的本地用户凭证登录。</li>
+<li>成功后可看到共享文件夹，并能进行文件操作。</li>
+</ol>
+<h2 id="十数据保护与维护建议">十、数据保护与维护建议</h2>
+<ul>
+<li><strong>定期快照</strong>：进入 &ldquo;Storage&rdquo; -&gt; &ldquo;Snapshots&rdquo;，可以为数据集创建手动或自动定时快照，用于快速恢复误删文件。</li>
+<li><strong>数据清理 (Scrub)</strong>：定期（如每月）对 ZFS 存储池执行 &ldquo;Scrub&rdquo; 操作，以检查并修复静默数据错误。</li>
+<li><strong>配置备份</strong>：使用 TrueNAS 的 &ldquo;Replication Tasks&rdquo; 功能将重要数据备份到另一台设备或云存储。</li>
+<li><strong>系统配置备份</strong>：在 &ldquo;System&rdquo; -&gt; &ldquo;General&rdquo; -&gt; &ldquo;Save Config&rdquo; 中，定期下载系统配置文件备份。</li>
+</ul>
+<p>通过以上步骤，您已经成功搭建起一个功能完整的 TrueNAS 系统。TrueNAS 的功能非常丰富，您还可以后续探索插件安装、虚拟机、云同步等高级功能。</p>
+
+      </div>
+
+      <footer>
+        
+      </footer>
+    </article>
+
+    
+    
+  </div>
+
+  
+    
+
+  
+
+  
+    
+
+  
+</div>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    
+    
+    <div class="copyright">
+      Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://github.com/yogirk/explore" target="_blank" rel="noopener">Explore Theme</a>.
+      <br>
+      Built with <a href="https://codeassist.google/" target="_blank" rel="noopener">Gemini CodeAssist</a>.
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="/js/minimal.min.js" defer></script>
+  
+</body>
+</html>

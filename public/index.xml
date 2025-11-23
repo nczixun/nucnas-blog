@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Nov 2025 09:00:29 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>小白从零开始搭建 TrueNAS 教程</title>
+      <link>http://localhost:1313/posts/nas-setup-guide/</link>
+      <pubDate>Sun, 23 Nov 2025 09:00:29 +0800</pubDate>
+      <guid>http://localhost:1313/posts/nas-setup-guide/</guid>
+      <description>&lt;h1 id=&#34;小白从零开始搭建-truenas-教程&#34;&gt;小白从零开始搭建 TrueNAS 教程&lt;/h1&gt;&#xA;&lt;h2 id=&#34;一truenas-简介与版本选择&#34;&gt;一、TrueNAS 简介与版本选择&lt;/h2&gt;&#xA;&lt;p&gt;TrueNAS 是一款功能强大的开源网络附加存储（NAS）操作系统，它基于 ZFS 文件系统，提供了数据完整性校验、快照、克隆、压缩等高级功能，非常适合家庭用户、中小型企业搭建数据存储中心。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;版本选择建议&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;TrueNAS CORE&lt;/strong&gt;：基于 FreeBSD，更加成熟稳定，适合追求稳定性的用户。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;TrueNAS SCALE&lt;/strong&gt;：基于 Debian Linux，支持 Docker 容器和 Kubernetes，适合需要更多应用生态和横向扩展的用户。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;注意&lt;/strong&gt;：本教程以 &lt;strong&gt;TrueNAS CORE&lt;/strong&gt; 为例，但 SCALE 版本安装过程类似。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;二安装前准备工作&#34;&gt;二、安装前准备工作&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-硬件要求&#34;&gt;1. 硬件要求&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;内存&lt;/strong&gt;：至少 8GB，推荐 16GB 或以上。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;存储&lt;/strong&gt;：&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;系统盘&lt;/strong&gt;：一个 ≥16GB 的 U 盘或 SSD（用于安装 TrueNAS 系统）。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;数据盘&lt;/strong&gt;：至少一块硬盘用于存储数据，容量根据需求选择。建议使用多块相同容量的硬盘以便配置 RAID。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;网络&lt;/strong&gt;：有线网卡（暂不支持无线网卡）。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;其他&lt;/strong&gt;：显示器、键盘。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-软件准备&#34;&gt;2. 软件准备&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;TrueNAS 镜像&lt;/strong&gt;：从 &lt;a href=&#34;https://www.truenas.com/download-truenas-core/&#34;&gt;官方网站&lt;/a&gt; 下载最新版本的 ISO 镜像文件。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;启动盘制作工具&lt;/strong&gt;：推荐使用 &lt;strong&gt;Rufus&lt;/strong&gt; 或 Etcher。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-制作-truenas-启动盘&#34;&gt;3. 制作 TrueNAS 启动盘&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;将 U 盘插入电脑。&lt;/li&gt;&#xA;&lt;li&gt;打开 Rufus，选择您的 U 盘设备。&lt;/li&gt;&#xA;&lt;li&gt;在 &amp;ldquo;镜像选择&amp;rdquo; 处，点击 &amp;ldquo;选择&amp;rdquo; 并找到您下载的 TrueNAS ISO 文件。&lt;/li&gt;&#xA;&lt;li&gt;点击 &amp;ldquo;开始&amp;rdquo;，使用 &lt;strong&gt;DD 模式&lt;/strong&gt;进行写入。&lt;/li&gt;&#xA;&lt;li&gt;等待进度条显示 &amp;ldquo;准备就绪&amp;rdquo;，即可安全移除 U 盘。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;三安装-truenas-系统&#34;&gt;三、安装 TrueNAS 系统&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;引导启动&lt;/strong&gt;：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
