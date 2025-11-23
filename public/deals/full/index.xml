@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ȫ������ (����) on MINI PC 与 NAS 解决方案，你的家庭数据中心专家。</title>
+    <link>http://localhost:1313/deals/full/</link>
+    <description>Recent content in ȫ������ (����) on MINI PC 与 NAS 解决方案，你的家庭数据中心专家。</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/deals/full/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
