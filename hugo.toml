@@ -5,43 +5,43 @@ theme = 'explore'
 # ... [您的 title, theme, baseURL 等配置]
 
 [menu]
-  # --- 1. NUC & 迷你主机 (一级分类) [weight = 10] ---
+  # --- 1. 迷你主机 (一级分类) [weight = 10] ---
   [[menu.main]]
-    identifier = "nuc"
-    name = "NUC & 迷你主机 💻"
-    url = "/nuc/"
+    identifier = "minipc" # 【修正】使用小写无空格的 identifier
+    name = "迷你主机 💻"
+    url = "/minipc/"       # 【修正】使用小写无空格的 URL 路径
     weight = 10 
     
     # --- 1.1 硬件评测 (二级) ---
     [[menu.main]]
-      identifier = "nuc-review"
+      identifier = "minipc-review"
       name = "硬件评测"
-      url = "/nuc/review/"
-      parent = "nuc" 
+      url = "/minipc/review/"
+      parent = "minipc"      # 【修正】parent 必须是 "minipc"
       weight = 11
 
       # --- 1.1.1 针对具体型号 (三级) ---
       [[menu.main]]
-        identifier = "nuc-models"
+        identifier = "minipc-models"
         name = "具体型号评测"
-        url = "/nuc/review/models/"
-        parent = "nuc-review" 
+        url = "/minipc/review/models/"
+        parent = "minipc-review" 
         weight = 111
 
     # --- 1.2 选购指南 (二级) ---
     [[menu.main]]
-      identifier = "nuc-guide"
+      identifier = "minipc-guide"
       name = "选购指南"
-      url = "/nuc/guide/"
-      parent = "nuc"
+      url = "/minipc/guide/"
+      parent = "minipc"       # 【修正】parent 必须是 "minipc"
       weight = 12
 
     # --- 1.3 DIY 改造 (二级) ---
     [[menu.main]]
-      identifier = "nuc-diy"
+      identifier = "minipc-diy"  # 【修正】identifier 应使用 minipc 前缀
       name = "DIY 改造"
-      url = "/nuc/diy/"
-      parent = "nuc"
+      url = "/minipc/diy/"      # 【修正】URL 路径应使用 minipc
+      parent = "minipc"         # 【修正】parent 必须是 "minipc"
       weight = 13
 
 
