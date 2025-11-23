@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'NucNas.top：顶级 NUC 与 NAS 解决方案，你的家庭数据中心专家。'
+title = 'MINI PC 与 NAS 解决方案，你的家庭数据中心专家。'
 theme = 'explore'
 # ... [您的 title, theme, baseURL 等配置]
 
