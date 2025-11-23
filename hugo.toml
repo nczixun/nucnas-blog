@@ -1,4 +1,4 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'NucNas.top：顶级 NUC 与 NAS 解决方案，你的家庭数据中心专家。'
 theme = 'explore'
