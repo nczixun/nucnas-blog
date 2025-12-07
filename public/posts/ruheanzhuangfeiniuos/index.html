@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何安装飞牛OS &middot; NUCNAS</title>
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/ruheanzhuangfeiniuos/">
+
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+
+
+<meta property="og:title" content="如何安装飞牛OS">
+<meta property="og:description" content="根据您的需求，这里为您整理了一份详细的飞牛OS (fnOS) 安装指南。整个过程主要分为四个阶段，下图清晰地展示了从准备到完成的核心步骤。
+flowchart LR
+    subgraph A [第一阶段：安装前准备]
+        A1[准备硬件与工具] --&gt; A2[制作启动U盘]
+    end
+
+    subgraph B [第二阶段：安装系统]
+        B1[设置BIOS并从U盘启动] --&gt; B2[图形化安装与硬盘分区]
+    end
+
+    subgraph C [第三阶段：配置网络]
+        C1[记下管理IP地址] --&gt; C2[拔出U盘并重启]
+    end
+
+    subgraph D [第四阶段：初始化]
+        D1[浏览器访问IP] --&gt; D2[创建管理员账户与存储空间]
+    end
+
+    A --&gt; B --&gt; C --&gt; D
+📋 第一阶段：安装前准备
+在开始安装前，请先准备好以下硬件和软件：
+
+
+硬件与工具：
+
+主机设备：一台x86架构的电脑、迷你主机或服务器。作为NAS使用，建议有千兆或更高速度的有线网卡。
+存储硬盘：用于安装系统的硬盘（如SSD）。安装过程会格式化此硬盘，请务必提前备份重要数据。
+U盘：一个容量不小于8GB的U盘，用于制作启动盘。
+外设：安装过程中需要连接显示器、键盘和鼠标。
+
+
+
+软件下载：
+
+fnOS系统镜像：从飞牛私有云官方网站下载最新的ISO镜像文件。
+写盘工具：用于将系统镜像写入U盘。常用工具有：
+
+Rufus：操作简单直接。
+Ventoy：可将多个ISO文件拷贝至U盘，更为灵活。
+
+
+
+
+
+🛠️ 第二阶段：启动与安装系统
+准备好工具后，就可以开始安装了。
+
+
+制作启动U盘：
+
+使用Rufus或Ventoy工具，将下载好的fnOS系统镜像（.iso文件）写入U盘。此操作会清空U盘数据。
+
+
+
+设置BIOS并启动：
+
+将启动U盘插入目标主机，开机并连续按Del、F2、F7或Esc键（具体因主板品牌而异）进入BIOS或启动菜单。
+关键设置：在BIOS的启动设置中，务必关闭 Secure Boot（安全启动），否则可能导致安装失败。然后将U盘设置为第一启动项并保存重启。
+
+
+
+开始安装fnOS系统：
+
+主机从U盘启动后，会进入fnOS安装界面。推荐选择 “Graphical Install”（图形化安装） 模式。
+根据提示选择语言和键盘布局。
+在选择安装磁盘时请务必谨慎，目标硬盘将被完全格式化。
+设置系统分区大小，如果硬盘容量充足，建议将系统分区设置为 64GB。剩余空间之后可用于创建存储池。
+确认信息并开始安装，过程会自动进行。
+
+
+
+🌐 第三阶段：配置网络与重启
+
+
+配置网络并记录IP：">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/posts/ruheanzhuangfeiniuos/">
+
+
+
+<meta property="article:section" content="posts">
+
+
+<meta property="article:published_time" content="2025-12-07 14:51:28 &#43;0800 CST">
+
+
+<meta property="article:modified_time" content="2025-12-07 14:51:28 &#43;0800 CST">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="如何安装飞牛OS">
+<meta name="twitter:description" content="根据您的需求，这里为您整理了一份详细的飞牛OS (fnOS) 安装指南。整个过程主要分为四个阶段，下图清晰地展示了从准备到完成的核心步骤。
+flowchart LR
+    subgraph A [第一阶段：安装前准备]
+        A1[准备硬件与工具] --&gt; A2[制作启动U盘]
+    end
+
+    subgraph B [第二阶段：安装系统]
+        B1[设置BIOS并从U盘启动] --&gt; B2[图形化安装与硬盘分区]
+    end
+
+    subgraph C [第三阶段：配置网络]
+        C1[记下管理IP地址] --&gt; C2[拔出U盘并重启]
+    end
+
+    subgraph D [第四阶段：初始化]
+        D1[浏览器访问IP] --&gt; D2[创建管理员账户与存储空间]
+    end
+
+    A --&gt; B --&gt; C --&gt; D
+📋 第一阶段：安装前准备
+在开始安装前，请先准备好以下硬件和软件：
+
+
+硬件与工具：
+
+主机设备：一台x86架构的电脑、迷你主机或服务器。作为NAS使用，建议有千兆或更高速度的有线网卡。
+存储硬盘：用于安装系统的硬盘（如SSD）。安装过程会格式化此硬盘，请务必提前备份重要数据。
+U盘：一个容量不小于8GB的U盘，用于制作启动盘。
+外设：安装过程中需要连接显示器、键盘和鼠标。
+
+
+
+软件下载：
+
+fnOS系统镜像：从飞牛私有云官方网站下载最新的ISO镜像文件。
+写盘工具：用于将系统镜像写入U盘。常用工具有：
+
+Rufus：操作简单直接。
+Ventoy：可将多个ISO文件拷贝至U盘，更为灵活。
+
+
+
+
+
+🛠️ 第二阶段：启动与安装系统
+准备好工具后，就可以开始安装了。
+
+
+制作启动U盘：
+
+使用Rufus或Ventoy工具，将下载好的fnOS系统镜像（.iso文件）写入U盘。此操作会清空U盘数据。
+
+
+
+设置BIOS并启动：
+
+将启动U盘插入目标主机，开机并连续按Del、F2、F7或Esc键（具体因主板品牌而异）进入BIOS或启动菜单。
+关键设置：在BIOS的启动设置中，务必关闭 Secure Boot（安全启动），否则可能导致安装失败。然后将U盘设置为第一启动项并保存重启。
+
+
+
+开始安装fnOS系统：
+
+主机从U盘启动后，会进入fnOS安装界面。推荐选择 “Graphical Install”（图形化安装） 模式。
+根据提示选择语言和键盘布局。
+在选择安装磁盘时请务必谨慎，目标硬盘将被完全格式化。
+设置系统分区大小，如果硬盘容量充足，建议将系统分区设置为 64GB。剩余空间之后可用于创建存储池。
+确认信息并开始安装，过程会自动进行。
+
+
+
+🌐 第三阶段：配置网络与重启
+
+
+配置网络并记录IP：">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何安装飞牛OS",
+  "name": "如何安装飞牛OS",
+  "description": "\u003cp\u003e根据您的需求，这里为您整理了一份详细的飞牛OS (fnOS) 安装指南。整个过程主要分为四个阶段，下图清晰地展示了从准备到完成的核心步骤。\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode class=\u0022language-mermaid\u0022 data-lang=\u0022mermaid\u0022\u003eflowchart LR\n    subgraph A [第一阶段：安装前准备]\n        A1[准备硬件与工具] --\u0026gt; A2[制作启动U盘]\n    end\n\n    subgraph B [第二阶段：安装系统]\n        B1[设置BIOS并从U盘启动] --\u0026gt; B2[图形化安装与硬盘分区]\n    end\n\n    subgraph C [第三阶段：配置网络]\n        C1[记下管理IP地址] --\u0026gt; C2[拔出U盘并重启]\n    end\n\n    subgraph D [第四阶段：初始化]\n        D1[浏览器访问IP] --\u0026gt; D2[创建管理员账户与存储空间]\n    end\n\n    A --\u0026gt; B --\u0026gt; C --\u0026gt; D\n\u003c\/code\u003e\u003c\/pre\u003e\u003ch3 id=\u0022-第一阶段安装前准备\u0022\u003e📋 第一阶段：安装前准备\u003c\/h3\u003e\n\u003cp\u003e在开始安装前，请先准备好以下硬件和软件：\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e硬件与工具\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e主机设备\u003c\/strong\u003e：一台x86架构的电脑、迷你主机或服务器。作为NAS使用，建议有\u003cstrong\u003e千兆或更高速度的有线网卡\u003c\/strong\u003e。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e存储硬盘\u003c\/strong\u003e：用于安装系统的硬盘（如SSD）。安装过程会格式化此硬盘，请\u003cstrong\u003e务必提前备份重要数据\u003c\/strong\u003e。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eU盘\u003c\/strong\u003e：一个容量\u003cstrong\u003e不小于8GB\u003c\/strong\u003e的U盘，用于制作启动盘。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e外设\u003c\/strong\u003e：安装过程中需要连接\u003cstrong\u003e显示器、键盘和鼠标\u003c\/strong\u003e。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e软件下载\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003efnOS系统镜像\u003c\/strong\u003e：从飞牛私有云官方网站下载最新的ISO镜像文件。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e写盘工具\u003c\/strong\u003e：用于将系统镜像写入U盘。常用工具有：\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eRufus\u003c\/strong\u003e：操作简单直接。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eVentoy\u003c\/strong\u003e：可将多个ISO文件拷贝至U盘，更为灵活。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch3 id=\u0022-第二阶段启动与安装系统\u0022\u003e🛠️ 第二阶段：启动与安装系统\u003c\/h3\u003e\n\u003cp\u003e准备好工具后，就可以开始安装了。\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e制作启动U盘\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e使用Rufus或Ventoy工具，将下载好的fnOS系统镜像（.iso文件）写入U盘。此操作会清空U盘数据。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e设置BIOS并启动\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e将启动U盘插入目标主机，开机并连续按\u003ccode\u003eDel\u003c\/code\u003e、\u003ccode\u003eF2\u003c\/code\u003e、\u003ccode\u003eF7\u003c\/code\u003e或\u003ccode\u003eEsc\u003c\/code\u003e键（具体因主板品牌而异）进入BIOS或启动菜单。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003e关键设置\u003c\/strong\u003e：在BIOS的启动设置中，\u003cstrong\u003e务必关闭 Secure Boot（安全启动）\u003c\/strong\u003e，否则可能导致安装失败。然后将U盘设置为第一启动项并保存重启。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e开始安装fnOS系统\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e主机从U盘启动后，会进入fnOS安装界面。推荐选择 \u003cstrong\u003e“Graphical Install”（图形化安装）\u003c\/strong\u003e 模式。\u003c\/li\u003e\n\u003cli\u003e根据提示选择语言和键盘布局。\u003c\/li\u003e\n\u003cli\u003e在\u003cstrong\u003e选择安装磁盘\u003c\/strong\u003e时请务必谨慎，\u003cstrong\u003e目标硬盘将被完全格式化\u003c\/strong\u003e。\u003c\/li\u003e\n\u003cli\u003e设置系统分区大小，如果硬盘容量充足，建议将系统分区设置为 \u003cstrong\u003e64GB\u003c\/strong\u003e。剩余空间之后可用于创建存储池。\u003c\/li\u003e\n\u003cli\u003e确认信息并开始安装，过程会自动进行。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch3 id=\u0022-第三阶段配置网络与重启\u0022\u003e🌐 第三阶段：配置网络与重启\u003c\/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e配置网络并记录IP\u003c\/strong\u003e：\u003c\/p\u003e",
+  "url": "http:\/\/localhost:1313\/posts\/ruheanzhuangfeiniuos\/",
+  
+  "datePublished": "2025-12-07T14:51:28\u002b08:00",
+  "dateModified": "2025-12-07T14:51:28\u002b08:00",
+  "author": {
+    "@type": "Person",
+    "name": ""
+  },
+  
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http:\/\/localhost:1313\/posts\/ruheanzhuangfeiniuos\/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "NUCNAS",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http:\/\/localhost:1313\/apple-touch-icon.png"
+    }
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.9f977af4f7690c30b9e466d934ec338d56157a5fab2ba3bd323be8bdca99a37e.css" integrity="sha256-n5d69PdpDDC55GbZNOwzjVYVel&#43;rK6O9MjvovcqZo34=">
+
+
+
+
+</head>
+<body>
+  <header class="site-header ">
+  <div class="container header-inner">
+    <div class="site-identity">
+      <a href="/" class="site-brand">
+        
+          NUCNAS
+        
+      </a>
+      
+    </div>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <nav id="site-nav" class="site-nav">
+      <div class="main-nav">
+        <ul>
+          
+          
+        </ul>
+      </div>
+      
+      <a href="/search" class="nav-search" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+      
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+  <main class="site-main">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="layout-grid ">
+    <article class="post-single main-content ">
+      <header class="post-header">
+        <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li><li class="breadcrumb-item"><a href="/posts/">Posts</a></li><li class="breadcrumb-item" aria-current="page">如何安装飞牛OS</li>
+  </ol>
+</nav>
+        <h1 class="post-title">如何安装飞牛OS</h1>
+        <div class="post-meta">
+          
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <time datetime="2025-12-07T14:51:28&#43;08:00">Dec 7, 2025</time>
+            </span>
+          
+          
+        </div>
+      </header>
+
+      
+        <aside class="toc">
+  <h2 class="toc-title">Table of Contents</h2>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-第一阶段安装前准备">📋 第一阶段：安装前准备</a></li>
+        <li><a href="#-第二阶段启动与安装系统">🛠️ 第二阶段：启动与安装系统</a></li>
+        <li><a href="#-第三阶段配置网络与重启">🌐 第三阶段：配置网络与重启</a></li>
+        <li><a href="#-第四阶段初始化与首次使用">🚀 第四阶段：初始化与首次使用</a></li>
+        <li><a href="#-针对迷你主机minipc的额外提示">💡 针对迷你主机（MiniPC）的额外提示</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      
+
+      <div class="post-content">
+        <p>根据您的需求，这里为您整理了一份详细的飞牛OS (fnOS) 安装指南。整个过程主要分为四个阶段，下图清晰地展示了从准备到完成的核心步骤。</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+    subgraph A [第一阶段：安装前准备]
+        A1[准备硬件与工具] --&gt; A2[制作启动U盘]
+    end
+
+    subgraph B [第二阶段：安装系统]
+        B1[设置BIOS并从U盘启动] --&gt; B2[图形化安装与硬盘分区]
+    end
+
+    subgraph C [第三阶段：配置网络]
+        C1[记下管理IP地址] --&gt; C2[拔出U盘并重启]
+    end
+
+    subgraph D [第四阶段：初始化]
+        D1[浏览器访问IP] --&gt; D2[创建管理员账户与存储空间]
+    end
+
+    A --&gt; B --&gt; C --&gt; D
+</code></pre><h3 id="-第一阶段安装前准备">📋 第一阶段：安装前准备</h3>
+<p>在开始安装前，请先准备好以下硬件和软件：</p>
+<ol>
+<li>
+<p><strong>硬件与工具</strong>：</p>
+<ul>
+<li><strong>主机设备</strong>：一台x86架构的电脑、迷你主机或服务器。作为NAS使用，建议有<strong>千兆或更高速度的有线网卡</strong>。</li>
+<li><strong>存储硬盘</strong>：用于安装系统的硬盘（如SSD）。安装过程会格式化此硬盘，请<strong>务必提前备份重要数据</strong>。</li>
+<li><strong>U盘</strong>：一个容量<strong>不小于8GB</strong>的U盘，用于制作启动盘。</li>
+<li><strong>外设</strong>：安装过程中需要连接<strong>显示器、键盘和鼠标</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>软件下载</strong>：</p>
+<ul>
+<li><strong>fnOS系统镜像</strong>：从飞牛私有云官方网站下载最新的ISO镜像文件。</li>
+<li><strong>写盘工具</strong>：用于将系统镜像写入U盘。常用工具有：
+<ul>
+<li><strong>Rufus</strong>：操作简单直接。</li>
+<li><strong>Ventoy</strong>：可将多个ISO文件拷贝至U盘，更为灵活。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="-第二阶段启动与安装系统">🛠️ 第二阶段：启动与安装系统</h3>
+<p>准备好工具后，就可以开始安装了。</p>
+<ol>
+<li>
+<p><strong>制作启动U盘</strong>：</p>
+<ul>
+<li>使用Rufus或Ventoy工具，将下载好的fnOS系统镜像（.iso文件）写入U盘。此操作会清空U盘数据。</li>
+</ul>
+</li>
+<li>
+<p><strong>设置BIOS并启动</strong>：</p>
+<ul>
+<li>将启动U盘插入目标主机，开机并连续按<code>Del</code>、<code>F2</code>、<code>F7</code>或<code>Esc</code>键（具体因主板品牌而异）进入BIOS或启动菜单。</li>
+<li><strong>关键设置</strong>：在BIOS的启动设置中，<strong>务必关闭 Secure Boot（安全启动）</strong>，否则可能导致安装失败。然后将U盘设置为第一启动项并保存重启。</li>
+</ul>
+</li>
+<li>
+<p><strong>开始安装fnOS系统</strong>：</p>
+<ul>
+<li>主机从U盘启动后，会进入fnOS安装界面。推荐选择 <strong>“Graphical Install”（图形化安装）</strong> 模式。</li>
+<li>根据提示选择语言和键盘布局。</li>
+<li>在<strong>选择安装磁盘</strong>时请务必谨慎，<strong>目标硬盘将被完全格式化</strong>。</li>
+<li>设置系统分区大小，如果硬盘容量充足，建议将系统分区设置为 <strong>64GB</strong>。剩余空间之后可用于创建存储池。</li>
+<li>确认信息并开始安装，过程会自动进行。</li>
+</ul>
+</li>
+</ol>
+<h3 id="-第三阶段配置网络与重启">🌐 第三阶段：配置网络与重启</h3>
+<ol>
+<li>
+<p><strong>配置网络并记录IP</strong>：</p>
+<ul>
+<li>系统安装完成后，会自动进入网络设置界面。如果网络支持DHCP，它会自动获取IP地址。</li>
+<li><strong>请务必牢记此时屏幕上显示的IP地址和端口号</strong>（例如 <code>192.168.1.100:5666</code>），这是后续通过浏览器访问管理界面的唯一地址。</li>
+</ul>
+</li>
+<li>
+<p><strong>重启系统</strong>：</p>
+<ul>
+<li>网络设置保存成功后，按照提示<strong>拔出U盘</strong>，然后回车重启系统。</li>
+</ul>
+</li>
+</ol>
+<h3 id="-第四阶段初始化与首次使用">🚀 第四阶段：初始化与首次使用</h3>
+<p>系统重启后，即可开始初始化设置。</p>
+<ol>
+<li>
+<p><strong>访问Web管理界面</strong>：</p>
+<ul>
+<li>在局域网内的另一台电脑的浏览器中，输入刚才记录的设备IP地址（含端口），即可访问fnOS的Web管理界面。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建管理员账户</strong>：</p>
+<ul>
+<li>按照页面引导，创建第一个管理员账号（即超级管理员）。请务必设置一个高强度的密码。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建存储空间</strong>：</p>
+<ul>
+<li>登录后，系统通常会引导创建存储池和存储空间。您可以将之前安装时系统分区（如64GB）之外的空闲空间创建为存储空间，用于安装应用和存放文件。</li>
+</ul>
+</li>
+</ol>
+<h3 id="-针对迷你主机minipc的额外提示">💡 针对迷你主机（MiniPC）的额外提示</h3>
+<p>鉴于您之前关注硬件选择，如果您使用的是零刻等品牌的迷你主机，请注意：</p>
+<ul>
+<li><strong>启动快捷键</strong>：部分品牌迷你主机（如零刻）进入启动菜单的快捷键可能是<code>F7</code>，而非传统主板的<code>F12</code>。</li>
+<li><strong>内置存储</strong>：如果您的迷你主机自带eMMC存储，在安装选择磁盘时，可以将其作为系统盘使用。</li>
+<li><strong>驱动兼容性</strong>：绝大多数x86迷你主机的网卡、声卡等驱动在Linux内核下都能良好兼容，通常无需额外准备。</li>
+</ul>
+<p>安装完成后，您就可以在应用中心探索Docker、相册、影视等丰富功能了。</p>
+<p>希望这份指南能帮助您顺利完成飞牛OS的安装！如果在安装过程中遇到任何问题，例如在特定硬件上无法启动，或者想了解如何配置远程访问，都可以随时提问。</p>
+
+      </div>
+
+      <footer>
+        
+      </footer>
+    </article>
+
+    
+    
+  </div>
+
+  
+    
+
+<nav class="post-nav">
+  
+  <a href="/posts/test-deploy-success/" class="nav-prev">
+    <span class="nav-label">&larr; Previous Post</span>
+    <span class="nav-title">Test Deploy Success</span>
+  </a>
+  
+  
+</nav>
+
+  
+
+  
+    
+
+  
+</div>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    
+    
+    <div class="copyright">
+      Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://github.com/yogirk/explore" target="_blank" rel="noopener">Explore Theme</a>.
+      <br>
+      Built with <a href="https://codeassist.google/" target="_blank" rel="noopener">Gemini CodeAssist</a>.
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="/js/minimal.min.js" defer></script>
+  
+</body>
+</html>

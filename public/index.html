@@ -119,6 +119,130 @@
           
             <article class="post-list-item">
   <header>
+    <h2 class="post-title"><a href="/posts/ruheanzhuangfeiniuos/">如何安装飞牛OS</a></h2>
+    <div class="post-meta">
+      
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <time datetime="2025-12-07T14:51:28&#43;08:00">Dec 7, 2025</time>
+        </span>
+      
+      
+    </div>
+  </header>
+  
+    <div class="post-excerpt">
+      <a href="/posts/ruheanzhuangfeiniuos/" class="post-excerpt-link">
+        <p>根据您的需求，这里为您整理了一份详细的飞牛OS (fnOS) 安装指南。整个过程主要分为四个阶段，下图清晰地展示了从准备到完成的核心步骤。</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+    subgraph A [第一阶段：安装前准备]
+        A1[准备硬件与工具] --&gt; A2[制作启动U盘]
+    end
+
+    subgraph B [第二阶段：安装系统]
+        B1[设置BIOS并从U盘启动] --&gt; B2[图形化安装与硬盘分区]
+    end
+
+    subgraph C [第三阶段：配置网络]
+        C1[记下管理IP地址] --&gt; C2[拔出U盘并重启]
+    end
+
+    subgraph D [第四阶段：初始化]
+        D1[浏览器访问IP] --&gt; D2[创建管理员账户与存储空间]
+    end
+
+    A --&gt; B --&gt; C --&gt; D
+</code></pre><h3 id="-第一阶段安装前准备">📋 第一阶段：安装前准备</h3>
+<p>在开始安装前，请先准备好以下硬件和软件：</p>
+<ol>
+<li>
+<p><strong>硬件与工具</strong>：</p>
+<ul>
+<li><strong>主机设备</strong>：一台x86架构的电脑、迷你主机或服务器。作为NAS使用，建议有<strong>千兆或更高速度的有线网卡</strong>。</li>
+<li><strong>存储硬盘</strong>：用于安装系统的硬盘（如SSD）。安装过程会格式化此硬盘，请<strong>务必提前备份重要数据</strong>。</li>
+<li><strong>U盘</strong>：一个容量<strong>不小于8GB</strong>的U盘，用于制作启动盘。</li>
+<li><strong>外设</strong>：安装过程中需要连接<strong>显示器、键盘和鼠标</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>软件下载</strong>：</p>
+<ul>
+<li><strong>fnOS系统镜像</strong>：从飞牛私有云官方网站下载最新的ISO镜像文件。</li>
+<li><strong>写盘工具</strong>：用于将系统镜像写入U盘。常用工具有：
+<ul>
+<li><strong>Rufus</strong>：操作简单直接。</li>
+<li><strong>Ventoy</strong>：可将多个ISO文件拷贝至U盘，更为灵活。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="-第二阶段启动与安装系统">🛠️ 第二阶段：启动与安装系统</h3>
+<p>准备好工具后，就可以开始安装了。</p>
+<ol>
+<li>
+<p><strong>制作启动U盘</strong>：</p>
+<ul>
+<li>使用Rufus或Ventoy工具，将下载好的fnOS系统镜像（.iso文件）写入U盘。此操作会清空U盘数据。</li>
+</ul>
+</li>
+<li>
+<p><strong>设置BIOS并启动</strong>：</p>
+<ul>
+<li>将启动U盘插入目标主机，开机并连续按<code>Del</code>、<code>F2</code>、<code>F7</code>或<code>Esc</code>键（具体因主板品牌而异）进入BIOS或启动菜单。</li>
+<li><strong>关键设置</strong>：在BIOS的启动设置中，<strong>务必关闭 Secure Boot（安全启动）</strong>，否则可能导致安装失败。然后将U盘设置为第一启动项并保存重启。</li>
+</ul>
+</li>
+<li>
+<p><strong>开始安装fnOS系统</strong>：</p>
+<ul>
+<li>主机从U盘启动后，会进入fnOS安装界面。推荐选择 <strong>“Graphical Install”（图形化安装）</strong> 模式。</li>
+<li>根据提示选择语言和键盘布局。</li>
+<li>在<strong>选择安装磁盘</strong>时请务必谨慎，<strong>目标硬盘将被完全格式化</strong>。</li>
+<li>设置系统分区大小，如果硬盘容量充足，建议将系统分区设置为 <strong>64GB</strong>。剩余空间之后可用于创建存储池。</li>
+<li>确认信息并开始安装，过程会自动进行。</li>
+</ul>
+</li>
+</ol>
+<h3 id="-第三阶段配置网络与重启">🌐 第三阶段：配置网络与重启</h3>
+<ol>
+<li>
+<p><strong>配置网络并记录IP</strong>：</p>
+        <span class="excerpt-ellipsis">&nbsp;(...)</span>
+      </a>
+    </div>
+  
+</article>
+          
+        
+          
+            <article class="post-list-item">
+  <header>
+    <h2 class="post-title"><a href="/posts/test-deploy-success/">Test Deploy Success</a></h2>
+    <div class="post-meta">
+      
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <time datetime="2025-12-07T14:26:39&#43;08:00">Dec 7, 2025</time>
+        </span>
+      
+      
+    </div>
+  </header>
+  
+    <div class="post-excerpt">
+      <a href="/posts/test-deploy-success/" class="post-excerpt-link">
+        
+        <span class="excerpt-ellipsis">&nbsp;(...)</span>
+      </a>
+    </div>
+  
+</article>
+          
+        
+          
+            <article class="post-list-item">
+  <header>
     <h2 class="post-title"><a href="/posts/feiniu-os-hardware-selection-guide-build-your-own-efficient-private-cloud-with-a-mini-pc/">飞牛OS硬件选择指南：用迷你PC打造你的专属高效私有云</a></h2>
     <div class="post-meta">
       

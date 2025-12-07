@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-12-07T13:27:52+08:00</lastmod>
+    <lastmod>2025-12-07T14:51:28+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-12-07T13:27:52+08:00</lastmod>
+    <lastmod>2025-12-07T14:51:28+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <loc>http://localhost:1313/posts/ruheanzhuangfeiniuos/</loc>
+    <lastmod>2025-12-07T14:51:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/test-deploy-success/</loc>
+    <lastmod>2025-12-07T14:26:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/feiniu-os-hardware-selection-guide-build-your-own-efficient-private-cloud-with-a-mini-pc/</loc>
     <lastmod>2025-12-07T13:27:52+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
