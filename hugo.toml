@@ -1,0 +1,4 @@
+baseURL = "https://nucnas.top/"
+languageCode = "zh-cn"
+title = "NUCNAS"
+theme = "explore"
