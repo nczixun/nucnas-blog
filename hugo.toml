@@ -2,3 +2,29 @@ baseURL = "https://nucnas.top/"
 languageCode = "zh-cn"
 title = "NUCNAS"
 theme = "explore"
+# ... (您的其他配置内容)
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1  # 决定在菜单中的位置，越小越靠前
+
+  [[menu.main]]
+    identifier = "nas"
+    name = "NAS系统"
+    url = "/nas"  # content/nas/_index.md 路径
+    weight = 2
+
+  [[menu.main]]
+    identifier = "minipc"
+    name = "迷你主机"
+    url = "/minipc"  # content/minipc/_index.md 路径
+    weight = 3
+
+  [[menu.main]]
+    identifier = "apps"
+    name = "应用与服务"
+    url = "/apps"  # content/apps/_index.md 路径
+    weight = 4
