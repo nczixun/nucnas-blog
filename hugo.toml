@@ -14,17 +14,17 @@ theme = "explore"
   [[menu.main]]
     identifier = "nas"
     name = "NAS系统"
-    url = "/nas"  # content/nas/_index.md 路径
+    url = "/nas/_index.md"  # content/nas/_index.md 路径
     weight = 2
 
   [[menu.main]]
     identifier = "minipc"
     name = "迷你主机"
-    url = "/minipc"  # content/minipc/_index.md 路径
+    url = "/minipc/_index.md"  # content/minipc/_index.md 路径
     weight = 3
 
   [[menu.main]]
     identifier = "apps"
     name = "应用与服务"
-    url = "/apps"  # content/apps/_index.md 路径
+    url = "/apps/_index.md"  # content/apps/_index.md 路径
     weight = 4
